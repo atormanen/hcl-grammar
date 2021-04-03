@@ -6,7 +6,7 @@
     "language",
     "grammar"
   ],
-  "repository": "https://github.com/atormanen/language-hcl",
+  "repository": "https://github.com/atormanen/hcl-grammar",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
