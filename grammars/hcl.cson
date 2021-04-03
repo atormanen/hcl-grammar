@@ -20,7 +20,7 @@
     'name': 'constant.language.hcl'
 
   'keyword':
-    'match': '\\b(?:resource|data|output|locals|terraform|variable|tag)\\b'
+    'match': '\\b(?:resource|data|output|locals|terraform|variable|tag|provider)\\b'
     'name': 'variable.language.hcl'
 
   'variable_local':
