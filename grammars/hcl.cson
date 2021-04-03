@@ -19,6 +19,18 @@
     'match': '\\b(?:true|false|null)\\b'
     'name': 'constant.language.hcl'
 
+  'keyword':
+    'match': '\\b(?:resource|data|output|locals|terraform|variable|tag)\\b'
+    'name': 'variable.language.hcl'
+
+  'variable_local':
+    'match': '(?<=local\\.)(\\w+)'
+    'name': 'variable.language.hcl'
+
+  'variable_var':
+    'match': '(?<=var\\.)(\\w+)'
+    'name': 'variable.language.hcl'
+
   'number':
     'comment': 'handles integer and decimal numbers'
     'match': '-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?'
@@ -69,7 +81,8 @@
         'name': 'punctuation.separator.array.hcl'
       }
       {
-        'match': '[^\\s\\]]'
+        #Add period to below match to remove red
+        'match': '[^\\s\\].]'
         'name': 'invalid.illegal.expected-array-separator.hcl'
       }
     ]
@@ -115,10 +128,10 @@
           }
         ]
       }
-      {
-        'match': '[^\\s\\}]'
-        'name': 'invalid.illegal.expected-dictionary-separator.hcl'
-      }
+      # {
+      #   'match': '[^\\s\\}]'
+      #   'name': 'invalid.illegal.expected-dictionary-separator.hcl'
+      # }
     ]
 
   'comment':
@@ -198,24 +211,33 @@
         'include': '#constant'
       }
       {
+        'include': '#keyword'
+      }
+      {
+        'include': '#variable_local'
+      }
+      {
+        'include': '#variable_var'
+      }
+      {
         'include': '#number'
       }
       {
         'include': '#kwString'
       }
       {
-        'include': '#heredoc'
-      }
-      {
         'include': '#string'
       }
-      {
-        'include': '#array'
-      }
-      {
-        'include': '#object'
-      }
+      # {
+      #   'include': '#array'
+      # }
+      # {
+      #   'include': '#object'
+      # }
       {
         'include': '#comment'
       }
+      # {
+      #   'include': '#heredoc'
+      # }
     ]
